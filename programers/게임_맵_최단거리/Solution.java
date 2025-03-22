@@ -4,50 +4,50 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution {
-    public int solution(int[][] maps) {
-
-        Queue<int[]> queue = new LinkedList<>();
-        //인덱스 0,1은 현재인덱스, 2,3은 과거 인덱스
-        queue.add(new int[]{0,0,0,0,0});
-
-        int n= maps[0].length;
-        int m= maps.length;
-
-        int min=Integer.MAX_VALUE;
-
-        while (!queue.isEmpty()) {
-            int[] last = queue.poll();
-            if(last[0]==n&&last[1]==m) min=last[4];
-
-            if((last[0]-1>=0)
-                    && maps[last[0]-1][last[1]] == 1
-                    && !(last[0]-1==last[2]&&last[1]==last[3])){
-                queue.add(new int[]{last[0]-1, last[1], last[0], last[1], last[4]+1});
-            }
-            if((last[1]-1>=0)
-                    && maps[last[0]][last[1]-1] == 1
-                    && !(last[0]==last[2]&&last[1]-1==last[3])){
-                queue.add(new int[]{last[0], last[1]-1, last[0], last[1], last[4]+1});
-            }
-            if((last[0]+1<n)
-                    && maps[last[0]+1][last[1]] == 1
-                    && !(last[0]+1==last[2]&&last[1]==last[3])){
-                queue.add(new int[]{last[0]+1, last[1], last[0], last[1], last[4]+1});
-            }
-            if((last[1]+1<m)
-                    && maps[last[0]][last[1]+1] == 1
-                    && !(last[0]==last[2]&&last[1]+1==last[3])){
-                queue.add(new int[]{last[0], last[1]+1, last[0], last[1], last[4]+1});
-            }
-        }
-
-        return min;
-
-    }
-
-}
-
+//class Solution {
+//    public int solution(int[][] maps) {
+//
+//        Queue<int[]> queue = new LinkedList<>();
+//        //인덱스 0,1은 현재인덱스, 2,3은 과거 인덱스
+//        queue.add(new int[]{0,0,0,0,0});
+//
+//        int n= maps[0].length;
+//        int m= maps.length;
+//
+//        int min=Integer.MAX_VALUE;
+//
+//        while (!queue.isEmpty()) {
+//            int[] last = queue.poll();
+//            if(last[0]==n&&last[1]==m) min=last[4];
+//
+//            if((last[0]-1>=0)
+//                    && maps[last[0]-1][last[1]] == 1
+//                    && !(last[0]-1==last[2]&&last[1]==last[3])){
+//                queue.add(new int[]{last[0]-1, last[1], last[0], last[1], last[4]+1});
+//            }
+//            if((last[1]-1>=0)
+//                    && maps[last[0]][last[1]-1] == 1
+//                    && !(last[0]==last[2]&&last[1]-1==last[3])){
+//                queue.add(new int[]{last[0], last[1]-1, last[0], last[1], last[4]+1});
+//            }
+//            if((last[0]+1<n)
+//                    && maps[last[0]+1][last[1]] == 1
+//                    && !(last[0]+1==last[2]&&last[1]==last[3])){
+//                queue.add(new int[]{last[0]+1, last[1], last[0], last[1], last[4]+1});
+//            }
+//            if((last[1]+1<m)
+//                    && maps[last[0]][last[1]+1] == 1
+//                    && !(last[0]==last[2]&&last[1]+1==last[3])){
+//                queue.add(new int[]{last[0], last[1]+1, last[0], last[1], last[4]+1});
+//            }
+//        }
+//
+//        return min;
+//
+//    }
+//
+//}
+//
 
 
 import java.util.LinkedList;

@@ -2,7 +2,6 @@ package 단어변환;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
 //bfs
 class Solution {
     public int solution(String begin, String target, String[] words) {
